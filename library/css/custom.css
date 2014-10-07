@@ -120,15 +120,19 @@ tr.odd td{
 .main {
     background: #fff;
 }
-.navbar-brand {
-    background: #b2af9c url("../img/logo.png") no-repeat scroll center center / contain;
+.navbar-header {
     width: 100%;
+}
+.navbar-brand {
+    background:#b2af9c url("../img/logo.png") no-repeat scroll center center / contain;
     text-indent: -200%;
     overflow: hidden;
-    margin: 1em 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 100%;
 }
 .top {
-    height: 100px;
     border-bottom: 1px solid #b2af9c;
 }
 
@@ -148,6 +152,9 @@ tr.odd td{
 .menu-sprachenschalter-container {
     margin:.5em 2em;
 }
+.nav > li {
+    vertical-align: middle;
+}
 .nav > li > a,
 .dropdown-menu > li > a{
     color:inherit;
@@ -155,9 +162,7 @@ tr.odd td{
 .nav > li > a{
     padding: 1em;
 }
-.dropdown-menu {
-    z-index: 1000;
-}
+
 .nav > li:last-child > ul.dropdown-menu {
     right:0 !important;
     left: auto;
@@ -178,7 +183,7 @@ tr.odd td{
     padding: 1em 0;
 }
 ul.nav .dropdown > .dropdown-menu .caret {
-  border-left: 4px solid currentcolor;
+    border-left: 4px solid currentcolor;
 }
 
 
@@ -196,8 +201,35 @@ ul.nav .dropdown > .dropdown-menu .caret {
 article > section p:not(.lead) {
     margin:1em 0;
 }
+article > section a {
+    text-decoration: underline;
+}
+article > section  ul,
+article > section ol {
+    padding-left: 1em;
+}
+article > section  ul li,
+article > section ol li {
+    margin-bottom: 1em;
+}
+#accordion > h3 {
+    border-top: 1px solid #b2af9c;
+    padding-top: 1em;
+}
 
 
+#accordion h3 > a:before {
+    font-family: 'fontawesome';
+    content: "\f0d7";
+}
+#accordion h3 > a.collapsed:before {
+    content: "\f0da";
+}
+#accordion [id*='collapse_'] > p.lead {
+    font-size: 1em;
+    font-weight: normal;
+    line-height: inherit;
+}
 /*lists*/
 .fa-ul {
     margin-left: 1em;
@@ -210,7 +242,7 @@ article > section p:not(.lead) {
 
 /*tags*/
 .tags a.label {
-     background: none repeat scroll 0 0 transparent;
+    background: none repeat scroll 0 0 transparent;
     border-radius: 0;
     border-right: 1px solid currentcolor;
     color: #b2af9c;
@@ -239,10 +271,10 @@ article > section p:not(.lead) {
     display: none;
 }
 .widget_meta li:nth-child(1), .widget_meta li:nth-child(2) {
-     display: inline-block;
+    display: inline-block;
 }
 .widget_meta li:first-child {
-        border:0;
+    border:0;
 }
 .widget .post-date {
     font-size:small;
@@ -286,11 +318,11 @@ article > section p:not(.lead) {
 }
 
 #award {
-      background: transparent url("../img/logo_dav_col.svg") no-repeat scroll center center / contain;
-      height: 100px;
+    background: transparent url("../img/logo_dav_col.svg") no-repeat scroll center center / contain;
+    height: 100px;
 }
 .no-svg .award {
-      background-image: url("../img/logo_dav_col.png");
+    background-image: url("../img/logo_dav_col.png");
 }
 
 /**** sidebar widgets ***/

@@ -1,5 +1,10 @@
 jQuery(document).ready(function($) {
     //alert('hallo'); 	
+ 
+    //external links
+    $('a').filter(function() {
+	    return this.hostname && this.hostname !== location.hostname;
+	  }).attr("target","_blank").append(' <i class="fa fa-external-link-square"></i>');
     
     //change menu 
     $('#menu-hauptmenu').removeClass('navbar-nav').addClass('nav-justified');
@@ -18,18 +23,14 @@ jQuery(document).ready(function($) {
     $('.content article ul').addClass('fa-ul');
     $('ul.fa-ul').children('li').prepend('<i class="fa fa-check"></i>');
     
+    //responsive tables 
+    $('table').wrap('<div class="table-responsive"></div>');
     
     //accordion
     $('.collapse').collapse();
-    $('#accordion > h3 > a').each(function(){
-	$(this).prepend('<i class="fa fa-caret-right"></i>');
-	$(this).click(function(){
-	    $(this).children('i').removeClass('fa-caret-right').addClass('fa-caret-down');
-	},function(){
-	    $(this).children('i').removeClass('fa-caret-down').addClass('fa-caret-right');
-	});
-
-    });
-    $('#accordion > h3 > a:first-child').removeClass('collapse');
+    //$('#accordion > h3 > a').addClass('collapse');
+    
+    
+    
     
 });

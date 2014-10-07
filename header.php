@@ -35,12 +35,19 @@
     <div class="row">
 	<div class="col-md-3 col-sm-12 sidebar">
 	    <div class="top clearfix">
-		<a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
-		    <?php bloginfo('name'); ?>
-		</a>
+		<div class="navbar-header">
+		    <a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
+			<?php bloginfo('name'); ?>
+		    </a>
+		    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		    </button>
+		</div>
 	    </div>
 	    <?php #if ((is_front_page())) : ?>
-	    <div class="banner hidden-sm">
+	    <div class="banner hidden-xs hidden-sm">
 
 		<?php
 		query_posts(array(
@@ -68,7 +75,7 @@
 		<?php endif; ?>
 	    </div>
 	    <?php #endif; ?>
-	    <div class="content">
+	    <div class="content hidden-xs hidden-sm">
 		<?php
 		if (!(is_front_page())) :
 		get_sidebar('sidebar');
@@ -86,7 +93,7 @@
 	    <div class="top clearfix">
 		<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('languages')) : ?>
 		<?php endif; ?>
-		<nav class="collapse navbar-collapse navbar-responsive-collapse"><?php wp_bootstrap_main_nav(); ?></nav>
+		<nav class="navbar-collapse navbar-responsive-collapse"><?php wp_bootstrap_main_nav(); ?></nav>
 	    </div>
 	    <?php if ((is_front_page())) : ?>
     	    <div class="banner">

@@ -67,14 +67,14 @@ function wp_jt_theme() {
 		'name' => __('Adresse_Teil-1'),
 		'id' => 'adress1',
 		'description' => _("Container für die Adresse"),
-		'before_widget' => '<div id="%1$s" class="widget col-md-4 %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget col-md-4 col-sm-4 %2$s">',
 		'after_widget' => '</div>'
 	    ));
 	    register_sidebar(array(
 		'name' => __('Adresse_Teil-2'),
 		'id' => 'adress2',
 		'description' => _("Container für die Adresse"),
-		'before_widget' => '<div id="%1$s" class="widget col-md-4 %2$s">',
+		'before_widget' => '<div id="%1$s" class="widget col-md-4 col-sm-4 %2$s">',
 		'after_widget' => '</div>'
 	    ));
 	        register_sidebar(array(

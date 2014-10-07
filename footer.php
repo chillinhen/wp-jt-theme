@@ -7,7 +7,7 @@
 	<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('adress2')) : ?>
 	<?php endif; ?>
 	<?php #if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('award')) : endif; ?>
-	<div id="award" class="widget col-md-4"> </div>
+	<div id="award" class="widget col-md-4 col-sm-4"> </div>
     </div>
     <?php #wp_bootstrap_footer_links(); // Adjust using Menus in Wordpress Admin ?>
 </div>
