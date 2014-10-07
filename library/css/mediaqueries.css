@@ -1,0 +1,7 @@
+/*** max. 1280 ***/
+
+@media screen and (min-width:1024px) { 
+    .sidebar{
+	position:fixed;
+    }
+}

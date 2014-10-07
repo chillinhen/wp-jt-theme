@@ -32,90 +32,87 @@
 
     <body <?php body_class(); ?>>
 	<div id="wrapper" class="container-fluid">
-	    <div class="row">
-		<div class="col-md-3 sidebar">
-		    <div class="top clearfix">
-			<a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
-			    <?php bloginfo('name'); ?>
-			</a>
-		    </div>
+    <div class="row">
+	<div class="col-md-3 col-sm-12 sidebar">
+	    <div class="top clearfix">
+		<a class="navbar-brand" title="<?php echo get_bloginfo('description'); ?>" href="<?php echo home_url(); ?>">
+		    <?php bloginfo('name'); ?>
+		</a>
+	    </div>
+	    <?php #if ((is_front_page())) : ?>
+	    <div class="banner hidden-sm">
 
-		    <?php #if ((is_front_page())) : ?>
-    		    <div class="banner">
+		<?php
+		query_posts(array(
+		    'post_type' => 'layout',
+		    'post_status' => 'publish',
+		    'layout-position' => 'profilfoto',
+		    'posts_per_page' => 1,
+		    'orderby' => 'date',
+		    'order' => 'DESC'
+		));
+		?>
+		<?php if (have_posts()) : ?>
+
+
+		    <?php while (have_posts()) : the_post(); ?>
+
+			<?php the_post_thumbnail('wpbs-featured'); ?>
+			<?php get_template_part('partials/edit', 'button'); ?>
+
+			<?php
+		    endwhile;
+		    wp_reset_query();
+		    ?>
+
+		<?php endif; ?>
+	    </div>
+	    <?php #endif; ?>
+	    <div class="content">
+		<?php
+		if (!(is_front_page())) :
+		get_sidebar('sidebar');
+		else :
+		get_sidebar('sidebar2');
+		endif;
+		if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('Login')) : 
+		endif; 
+		?>
+
+
+	    </div>
+	</div>
+	<div class="col-md-offset-3 col-md-9  col-sm-12 main">
+	    <div class="top clearfix">
+		<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('languages')) : ?>
+		<?php endif; ?>
+		<nav class="collapse navbar-collapse navbar-responsive-collapse"><?php wp_bootstrap_main_nav(); ?></nav>
+	    </div>
+	    <?php if ((is_front_page())) : ?>
+    	    <div class="banner">
+		    <?php
+		    query_posts(array(
+			'post_type' => 'layout',
+			'post_status' => 'publish',
+			'layout-position' => 'banner',
+			'posts_per_page' => 1,
+			'orderby' => 'date',
+			'order' => 'DESC'
+		    ));
+		    ?>
+		    <?php if (have_posts()) : ?>
+
+
+			<?php while (have_posts()) : the_post(); ?>
+
+			    <?php the_post_thumbnail('wpbs-featured'); ?>
+			    <?php get_template_part('partials/edit', 'button'); ?>
 
 			    <?php
-			    query_posts(array(
-				'post_type' => 'layout',
-				'post_status' => 'publish',
-				'layout-position' => 'profilfoto',
-				'posts_per_page' => 1,
-				'orderby' => 'date',
-				'order' => 'DESC'
-			    ));
-			    ?>
-			    <?php if (have_posts()) : ?>
-
-
-				<?php while (have_posts()) : the_post(); ?>
-
-				    <?php the_post_thumbnail('wpbs-featured'); ?>
-				    <?php get_template_part('partials/edit', 'button'); ?>
-
-				    <?php
-				endwhile;
-				wp_reset_query();
-				?>
-
-			    <?php endif; ?>
-    		    </div>
-		    <?php #endif; ?>
-
-		    <div class="content">
-			<?php
-			if (!(is_front_page())) :
-			#get_sidebar('sidebar');
-			else :
-			#get_sidebar('sidebar2');
-			endif;
+			endwhile;
+			wp_reset_query();
 			?>
 
-		    </div>
-		    <div class="bottom awards">
-			Mitglied im Anwaltsverein   
-		    </div>
-		</div>
-		<div class="col-md-offset-3 col-md-9  main">
-		    <div class="top clearfix">
-			<?php if (!function_exists('dynamic_sidebar') || !dynamic_sidebar('languages')) : ?>
-			<?php endif; ?>
-			<nav class="collapse navbar-collapse navbar-responsive-collapse"><?php wp_bootstrap_main_nav(); ?></nav>
-		    </div>
-		    <?php if ((is_front_page())) : ?>
-    		    <div class="banner">
-			    <?php
-			    query_posts(array(
-				'post_type' => 'layout',
-				'post_status' => 'publish',
-				'layout-position' => 'banner',
-				'posts_per_page' => 1,
-				'orderby' => 'date',
-				'order' => 'DESC'
-			    ));
-			    ?>
-			    <?php if (have_posts()) : ?>
-
-
-				<?php while (have_posts()) : the_post(); ?>
-
-				    <?php the_post_thumbnail('wpbs-featured'); ?>
-				    <?php get_template_part('partials/edit', 'button'); ?>
-
-				    <?php
-				endwhile;
-				wp_reset_query();
-				?>
-
-			    <?php endif; ?>
-    		    </div>
 		    <?php endif; ?>
-		    <div class="content">
+    	    </div>
+	    <?php endif; ?>
