@@ -9,9 +9,16 @@ jQuery(document).ready(function($) {
     //change menu 
     $('#menu-hauptmenu').removeClass('navbar-nav').addClass('nav-justified');
     
-    // equalize banner
-    var bannerHeight = $('.sidebar > .banner').height();
-    $('.main > .banner').css('height',bannerHeight);
+    // equalize banner and content
+    //Home
+    var bannerHeightHome = $('.home .sidebar > .banner').height();
+    //alert(bannerHeight);
+    $('.home .main > .banner').css('height',bannerHeightHome);
+    
+    var contentHeightHome = $('.home .main > .content').height();
+    $('.home .sidebar > .content').css('height',contentHeightHome);
+
+   
     //change some icons
     $('.content article ul').addClass('fa-ul');
     $('ul.fa-ul').children('li').prepend('<i class="fa fa-check"></i>');
@@ -21,12 +28,8 @@ jQuery(document).ready(function($) {
     
     //accordion
     $('.collapse').collapse();
-    $('#accordion > h3').addClass('collapseHeadline');
-    $('.collapseHeadline > a').each(function(){
-	$(this).click(function(){
-	    $(this).toggleClass('show');
-	});
-    });
+    //$('#accordion > h3 > a').addClass('collapse');
+    
     
     
     
